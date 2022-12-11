@@ -1,0 +1,28 @@
+version: '2.13'
+services:
+  node:
+    ...
+		# ADD THE CONFIGURATION FROM THIS POINT to build the MongoDB service
+     build:
+      context: ./Back
+      dockerfile: Dockerfile
+    ports:
+      - 5000:5000
+		
+    depends_on:
+      - mongo
+  # Name of mongo service
+  mongo:
+    # Official mongo image from docker.hub
+    image: mongo
+    ports : 
+      -27017:270017
+react:
+    build:
+      context: ./Front
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - node
+  
