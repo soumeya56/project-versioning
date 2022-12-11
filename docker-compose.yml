@@ -16,7 +16,7 @@ services:
     # Official mongo image from docker.hub
     image: mongo
     ports : 
-      -27017:270017
+      -27017:27017
 react:
     build:
       context: ./Front
